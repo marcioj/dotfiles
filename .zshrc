@@ -102,9 +102,16 @@ export PATH="$PATH:/home/marcio/.kerl/bin"
 # load current elixir
 source $HOME/.kiex/elixirs/elixir-1.0.5.env
 
-# sensitive variables
+# load z
+source $HOME/workspace/misc/z/z.sh
+
 source $HOME/.secrets
 
-# aliases
 alias open=xdg-open
 alias server='python2 -m SimpleHTTPServer 8000'
+
+# Fetchs a PR from the current repo and switch to new branch
+pr() {
+  git fetch origin pull/$1/head:$1
+  git checkout $1
+}
