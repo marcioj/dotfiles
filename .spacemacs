@@ -36,7 +36,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(jade-mode)
+   dotspacemacs-additional-packages '(jade-mode jasminejs-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -176,3 +176,7 @@ layers configuration."
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 2)
 (setq standard-indent 2)
+
+(add-hook 'js2-mode-hook (lambda () (jasminejs-mode)))
+(add-hook 'jasminejs-mode-hook (lambda () (jasminejs-add-snippets-to-yas-snippet-dirs)))
+
