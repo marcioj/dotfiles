@@ -31,12 +31,13 @@
      version-control
      html
      elixir
+     gtags
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(jade-mode jasminejs-mode)
+   dotspacemacs-additional-packages '(jade-mode jasminejs-mode editorconfig)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -163,20 +164,11 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (add-hook 'js2-mode-hook (lambda () (jasminejs-mode)))
+  (add-hook 'jasminejs-mode-hook (lambda () (jasminejs-add-snippets-to-yas-snippet-dirs)))
+  (setq jade-tab-width 2)
+  (editorconfig-mode 1)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-
-(setq c-basic-indent 2)
-(setq tab-width 2)
-(setq jade-tab-width 2)
-(setq js-indent-level 2)
-(setq css-indent-offset 2)
-(setq-default indent-tabs-mode nil)
-(setq-default c-basic-offset 2)
-(setq standard-indent 2)
-
-(add-hook 'js2-mode-hook (lambda () (jasminejs-mode)))
-(add-hook 'jasminejs-mode-hook (lambda () (jasminejs-add-snippets-to-yas-snippet-dirs)))
-
