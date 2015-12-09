@@ -115,3 +115,11 @@ pr() {
   git fetch origin pull/$1/head:$1
   git checkout $1
 }
+
+# Rebase commits without asking questions and take the last commit message
+grebase() {
+  git reset --soft $1 &&
+  git commit --edit -m"$(git log --format=%B HEAD..HEAD@{1} | tail -2)"
+}
+
+export ANDROID_HOME="$HOME/Android/Sdk"
