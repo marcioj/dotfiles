@@ -122,4 +122,16 @@ grebase() {
   git commit --edit -m"$(git log --format=%B HEAD..HEAD@{1} | tail -2)"
 }
 
+# Remove remote merged branches
+# Taken from http://stackoverflow.com/a/18143078/1846480
+gdelete_remote_merged_branches() {
+  git branch -r --merged | grep -v master | sed 's/origin\///' | xargs -n 1 git push --delete origin
+}
+
+# Remove local merged branches
+# Taken from http://stackoverflow.com/a/6127884/1846480
+gdelete_local_merged_branches() {
+  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+}
+
 export ANDROID_HOME="$HOME/Android/Sdk"
