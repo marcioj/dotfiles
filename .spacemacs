@@ -31,12 +31,19 @@
      version-control
      html
      elixir
-     )
+     markdown
+   )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(jade-mode jasminejs-mode editorconfig)
+   dotspacemacs-additional-packages
+   '(
+     jade-mode
+     jasminejs-mode
+     editorconfig
+     (livedown :location (recipe :fetcher github :repo "shime/emacs-livedown"))
+   )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -167,6 +174,8 @@ layers configuration."
   (add-hook 'jasminejs-mode-hook (lambda () (jasminejs-add-snippets-to-yas-snippet-dirs)))
   (setq jade-tab-width 2)
   (editorconfig-mode 1)
+  (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-livedown"))
+  (require 'livedown)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
