@@ -83,9 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-export NVM_DIR="/home/marcio/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+## Setup paths
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -105,10 +103,20 @@ source $HOME/.kiex/elixirs/elixir-1.0.5.env
 # load z
 source $HOME/workspace/misc/z/z.sh
 
+# Add n to path
+export N_PREFIX="$HOME/n"
+export PATH="$PATH:$N_PREFIX/bin"
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+
 source $HOME/.secrets
+
+## Aliases
 
 alias open=xdg-open
 alias server='python2 -m SimpleHTTPServer 8000'
+
+## Helper funcions
 
 # Fetchs a PR from the current repo and switch to new branch
 pr() {
@@ -134,4 +142,3 @@ gdelete_local_merged_branches() {
   git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
 }
 
-export ANDROID_HOME="$HOME/Android/Sdk"
