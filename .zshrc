@@ -109,6 +109,8 @@ export PATH="$PATH:$N_PREFIX/bin"
 
 export ANDROID_HOME="$HOME/Android/Sdk"
 
+export EDITOR='vim'
+
 source $HOME/.secrets
 
 ## Aliases
@@ -123,6 +125,18 @@ pr() {
   git fetch origin pull/$1/head:$1
   git checkout $1
 }
+
+nrun() {
+  local script_name=$1
+  [ $# != 0 ] && shift
+  npm run $script_name -- $@
+}
+
+_nrun_completion() {
+  compadd `npm run --no-color | grep '^  [^ ]' --color=never | sed 's/^ *//' | 2>/dev/null`
+}
+
+compdef _nrun_completion nrun
 
 # Rebase commits without asking questions and take the last commit message
 grebase() {
