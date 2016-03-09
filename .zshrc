@@ -88,20 +88,11 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# elixir version manager
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
-# erlang version manager
-export PATH="$PATH:/home/marcio/.kerl/bin"
-
-# activate current erlang version
-. /home/marcio/.kerl/installations/activate
-
-# load current elixir
-source $HOME/.kiex/elixirs/elixir-1.0.5.env
-
 # load z
 source $HOME/workspace/misc/z/z.sh
+
+# add other bins
+export PATH="$PATH:$HOME/bin"
 
 # Add n to path
 export N_PREFIX="$HOME/n"
