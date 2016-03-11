@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/home/marcio/.rvm/gems/ruby-2.1.5/bin:/home/marcio/.rvm/gems/ruby-2.1.5@global/bin:/home/marcio/.rvm/rubies/ruby-2.1.5/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/marcio/.rvm/bin:/home/marcio/.rvm/bin:/home/marcio/.yadr/bin:/home/marcio/.yadr/bin/yadr"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/marcio/.yadr/bin:/home/marcio/.yadr/bin/yadr"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
