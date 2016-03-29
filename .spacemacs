@@ -30,6 +30,7 @@
      javascript
      version-control
      html
+     clojure
      elixir
      markdown
      ruby-on-rails
@@ -181,6 +182,7 @@ layers configuration."
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-livedown"))
   (require 'livedown)
   (setq ruby-insert-encoding-magic-comment nil)
+  (add-to-list 'auto-mode-alist '("\\.es6\\'" . js2-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
