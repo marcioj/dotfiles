@@ -112,12 +112,6 @@ alias weather='curl http://wttr.in/Jaragua%20do%20sul'
 
 ## Helper funcions
 
-# Fetchs a PR from the current repo and switch to new branch
-pr() {
-  git fetch origin pull/$1/head:$1
-  git checkout $1
-}
-
 nrun() {
   local script_name=$1
   [ $# != 0 ] && shift
@@ -130,21 +124,8 @@ _nrun_completion() {
 
 compdef _nrun_completion nrun
 
-# Rebase commits without asking questions and take the last commit message
-grebase() {
+# Join commits without asking questions and take the last commit message
+git-join-commits() {
   git reset --soft $1 &&
   git commit --edit -m"$(git log --format=%B HEAD..HEAD@{1} | tail -2)"
 }
-
-# Remove remote merged branches
-# Taken from http://stackoverflow.com/a/18143078/1846480
-gdelete_remote_merged_branches() {
-  git branch -r --merged | grep -v master | sed 's/origin\///' | xargs -n 1 git push --delete origin
-}
-
-# Remove local merged branches
-# Taken from http://stackoverflow.com/a/6127884/1846480
-gdelete_local_merged_branches() {
-  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
-}
-
