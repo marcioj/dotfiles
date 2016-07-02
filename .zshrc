@@ -115,7 +115,7 @@ alias weather='curl http://wttr.in/Jaragua%20do%20sul'
 nrun() {
   local script_name=$1
   [ $# != 0 ] && shift
-  npm run $script_name -- $@
+  npm run $script_name --silent -- $@
 }
 
 _nrun_completion() {
