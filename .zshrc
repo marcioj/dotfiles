@@ -104,6 +104,8 @@ export EDITOR='vim'
 
 source $HOME/.secrets
 
+export QT_QPA_PLATFORM=''
+
 ## Aliases
 
 alias open=xdg-open
@@ -119,7 +121,7 @@ nrun() {
 }
 
 _nrun_completion() {
-  compadd `npm run --no-color | grep '^  [^ ]' --color=never | sed 's/^ *//' | 2>/dev/null`
+  compadd `npm run --no-color --no-progress | grep '^  [^ ]' --color=never | sed 's/^ *//' | 2>/dev/null`
 }
 
 compdef _nrun_completion nrun
