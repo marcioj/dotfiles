@@ -111,6 +111,7 @@ export QT_QPA_PLATFORM=''
 alias open=xdg-open
 alias server='python2 -m SimpleHTTPServer 8000'
 alias weather='curl http://wttr.in/Jaragua%20do%20sul'
+alias v=nvim
 
 ## Helper funcions
 
