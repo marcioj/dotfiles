@@ -127,6 +127,8 @@ _nrun_completion() {
 
 compdef _nrun_completion nrun
 
+alias reload='source ~/.zshrc'
+
 # Join commits without asking questions and take the last commit message
 git-join-commits() {
   git reset --soft $1 &&
