@@ -47,7 +47,6 @@
      jade-mode
      jasminejs-mode
      editorconfig
-     (livedown :location (recipe :fetcher github :repo "shime/emacs-livedown"))
    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -179,8 +178,6 @@ layers configuration."
   (add-hook 'jasminejs-mode-hook (lambda () (jasminejs-add-snippets-to-yas-snippet-dirs)))
   (setq jade-tab-width 2)
   (editorconfig-mode 1)
-  (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-livedown"))
-  (require 'livedown)
   (setq ruby-insert-encoding-magic-comment nil)
   (add-to-list 'auto-mode-alist '("\\.es6\\'" . js2-mode))
 )
